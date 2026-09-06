@@ -1,0 +1,84 @@
+{
+  "claim": "T1 baseline prepared; independent verifier still required before plan checkbox changes",
+  "recorded_at_utc": "2026-09-06T16:14:07.9939354Z",
+  "backup_path": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122",
+  "source_manifest": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\source-manifest.json",
+  "source_archive": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\source-v1.2.1-prechange.tar",
+  "recovery_manifest": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\recovery-manifest.json",
+  "restore_receipt": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\restore-receipt.json",
+  "recovery_instructions": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\README-RECOVERY.txt",
+  "scenarios": [
+    {
+      "name": "real archive extraction and hash comparison",
+      "invocation": "powershell -File C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\capture-t1.ps1",
+      "binary_observable": "tar entry set exact and 42 extracted SHA256 values match",
+      "result": true
+    },
+    {
+      "name": "altered scratch negative",
+      "invocation": "Add-Content on extracted scratch only, then Get-FileHash versus manifest",
+      "binary_observable": "manifest hash mismatch",
+      "result": true
+    },
+    {
+      "name": "malformed manifest",
+      "invocation": "ConvertFrom-Json on truncated scratch fixture",
+      "binary_observable": "parser rejection",
+      "result": true
+    },
+    {
+      "name": "interrupted capture",
+      "invocation": "require capture-complete.json on synthetic incomplete task-owned capture",
+      "binary_observable": "incomplete capture rejected",
+      "result": true
+    },
+    {
+      "name": "concurrent capture lock",
+      "invocation": "second FileShare.None open during capture",
+      "binary_observable": "IOException / writer denied",
+      "result": true
+    },
+    {
+      "name": "task scratch cleanup",
+      "invocation": "powershell -File C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\cleanup-scratch.ps1",
+      "binary_observable": "both exact task-owned scratch paths absent",
+      "result": true
+    }
+  ],
+  "included": {
+    "files": 42,
+    "bytes": 1557329
+  },
+  "excluded": {
+    "files": 19025,
+    "bytes": 19882662327,
+    "note": "excluded path inventory accounts for the large manifest but none are archive entries"
+  },
+  "hashes": {
+    "source_archive": "603E9D8A4FC8A4AB875F34EFB9CBEB474583A297479123161DE60D55A19EF8F3",
+    "source_manifest": "0A21FDEE91E2CEFD9392FDEFA5729AEEDDBFE50B479F47EE1F3BC37D28934BBC",
+    "recovery_manifest": "6D1870E3F982D73162D38C6FD935DB753583FB54B85E825F85DB12755F54C08B",
+    "restore_receipt": "9C4D2C76EE563EBF63C1338A009EA5D3A1E11B50D6AC00B44F5417CD500E84CD"
+  },
+  "nsis_package": [
+    {
+      "source_path": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\src-tauri\\target-install-v121\\release\\bundle\\nsis\\J.A.R.V.I.S Server Manager_1.2.1_x64-setup.exe",
+      "backup_path": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\v1.2.1-packages\\J.A.R.V.I.S Server Manager_1.2.1_x64-setup.exe",
+      "sha256": "AC0056176065B6A1452AE7CE4B169B5581D91608159B701336A8573048BA88EE",
+      "backup_sha256": "AC0056176065B6A1452AE7CE4B169B5581D91608159B701336A8573048BA88EE",
+      "file_version": "1.2.1"
+    }
+  ],
+  "installed_app_backup_hash_match": true,
+  "settings_backup_hash_match": true,
+  "cleanup": {
+    "scratch_restore_verified_exists": false,
+    "scratch_interrupt_probe_exists": false,
+    "result": "both removed"
+  },
+  "risks": [
+    "Settings backup can contain WebView credentials; it is local-only, never source-archived, and the rollback directory ACL is current user plus SYSTEM.",
+    "A future restorer must stop only verified JARVIS processes and preserve a current settings copy before restoring; no installer or settings restore was executed during baseline capture.",
+    "Source is non-Git; the SHA256 manifest is the provenance anchor. Independent verification is still required before T1 is marked complete."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "active_work_id": "jarvis-1-2-2-app-first",
+  "works": {
+    "jarvis-1-2-2-app-first": {
+      "work_id": "jarvis-1-2-2-app-first",
+      "active_plan": ".omo/plans/jarvis-1-2-2-app-first.md",
+      "plan_name": "jarvis-1-2-2-app-first",
+      "session_ids": ["codex:01a06d3a-5e1d-7072-b992-ae2a8e158442"],
+      "status": "active",
+      "worktree_path": null
+    }
+  }
+}

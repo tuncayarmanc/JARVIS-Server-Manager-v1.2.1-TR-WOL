@@ -1,0 +1,11 @@
+scenario=extra_version_argument
+exit=0
+stdout=
+J.A.R.V.I.S remediation helper 1.1.0
+stderr=
+
+scenario=missing_json_command
+exit=1
+stdout=
+stderr=
+Unsupported remediation action.

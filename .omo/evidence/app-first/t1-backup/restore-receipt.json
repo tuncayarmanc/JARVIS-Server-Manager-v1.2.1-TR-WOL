@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "scenario": "real archive extraction and SHA256 comparison",
+  "completed_at_utc": "2026-09-06T16:11:20.5099973Z",
+  "source_archive": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\source-v1.2.1-prechange.tar",
+  "source_archive_sha256": "603E9D8A4FC8A4AB875F34EFB9CBEB474583A297479123161DE60D55A19EF8F3",
+  "manifest_path": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\source-manifest.json",
+  "archive_entry_list_exact": true,
+  "restored_file_count": 42,
+  "restored_hash_match": true,
+  "scratch_mutation_path": "src/main.ts",
+  "scratch_mutation_detected": true,
+  "malformed_manifest_rejected": true,
+  "interrupt_incomplete_rejected": true,
+  "concurrent_capture_lock_denied": true,
+  "source_drift_after_capture_count": 0,
+  "source_drift_after_capture_paths": [],
+  "dirty_worktree_probe": {
+    "git_exit_code": 128,
+    "result": "source is non-Git; manifest is baseline provenance anchor"
+  },
+  "misleading_success_output_probe": "passed only after tar entry-set equality and every extracted SHA256 matched; tar success alone was not accepted",
+  "settings_copy_process_recheck_count": 0,
+  "cleanup_pending_paths": [
+    "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\scratch-restore-verified",
+    "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122\\scratch-interrupt-probe"
+  ],
+  "cleanup_verified": true,
+  "cleanup_completed_at_utc": "2026-09-06T16:13:29.3055860Z"
+}

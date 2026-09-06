@@ -1,0 +1,24 @@
+{
+  "task": "T1 baseline recovery preparation",
+  "status": "completed",
+  "completed_at_utc": "2026-09-06T16:11:20.5155004Z",
+  "project_root": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL",
+  "backup_path": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.install-rollback\\20260906-160851380-v122",
+  "evidence_path": "C:\\JARVIS-Server-Manager-v1.2.1-TR-WOL\\.omo\\evidence\\app-first\\t1-backup",
+  "source_included_file_count": 42,
+  "source_included_bytes": 1557329,
+  "source_excluded_file_count": 19025,
+  "source_excluded_bytes": 19882662327,
+  "restore_verified": true,
+  "settings_backup_files": 635,
+  "settings_backup_bytes": 66225885,
+  "package_count": 2,
+  "backup_acl": "current user + SYSTEM",
+  "backup_sha256": {
+    "source_archive": "603E9D8A4FC8A4AB875F34EFB9CBEB474583A297479123161DE60D55A19EF8F3",
+    "source_manifest": "0A21FDEE91E2CEFD9392FDEFA5729AEEDDBFE50B479F47EE1F3BC37D28934BBC",
+    "recovery_manifest": "6D1870E3F982D73162D38C6FD935DB753583FB54B85E825F85DB12755F54C08B",
+    "restore_receipt": "9C4D2C76EE563EBF63C1338A009EA5D3A1E11B50D6AC00B44F5417CD500E84CD"
+  },
+  "cleanup_verified": true
+}

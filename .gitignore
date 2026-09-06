@@ -1,0 +1,70 @@
+﻿
+# ==========================================
+# JARVIS Server Manager
+# Otomatik oluşturulan / büyük dosyalar
+# ==========================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Rust / Tauri build
+src-tauri/target/
+target/
+
+# Frontend build
+dist/
+build/
+
+# Cache
+.cache/
+.vite/
+.turbo/
+
+# Environment / Secret
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary
+*.tmp
+*.temp
+*.bak
+
+# Büyük arşivler
+*.7z
+*.7z.*
+*.zip
+*.rar
+*.tar
+*.tar.gz
+
+# ==================================================
+# JARVIS Server Manager - generated files
+# Node
+# Rust / Tauri build outputs
+src-tauri/target*/
+src-tauri/target-install-v121/
+target*/
+# Environment / secrets
+# Archives
+.install-rollback/
+.active-rollback-path
+.codegraph/
